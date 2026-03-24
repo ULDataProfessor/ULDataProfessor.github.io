@@ -3,340 +3,414 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sidney Shapiro PhD – Data Analytics &amp; Data Science</title>
+  <title>Sidney Shapiro PhD – Academic & Data Science Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary: #0f172a;
+      --accent: #38bdf8;
+      --gold: #d4af37;
+      --text: #f8fafc;
+      --glass: rgba(255, 255, 255, 0.05);
+      --border: rgba(255, 255, 255, 0.1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: #f4f6f9;
-      color: #222;
-      line-height: 1.7;
+      font-family: 'Outfit', sans-serif;
+      background: var(--primary);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    /* ── Hero ───────────────────────────────────────────────────── */
-    header {
-      background: linear-gradient(135deg, #0a3d62 0%, #1e6fa5 100%);
-      color: #fff;
-      padding: 56px 24px 40px;
-      text-align: center;
-    }
-    header h1 { font-size: 2.4rem; letter-spacing: .5px; }
-    header .tagline {
-      font-size: 1.05rem;
-      margin-top: 8px;
-      opacity: .9;
-    }
-    header .location { margin-top: 6px; opacity: .75; font-size: .9rem; }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; }
 
-    /* ── Contact bar ────────────────────────────────────────────── */
-    .contact-bar {
-      background: #fff;
-      border-bottom: 3px solid #1e6fa5;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      padding: 14px 24px;
-    }
-    .contact-bar a {
-      color: #1e6fa5;
-      text-decoration: none;
-      font-weight: 600;
+    /* ── Hero section ───────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      height: 90vh;
+      min-height: 600px;
       display: flex;
       align-items: center;
-      gap: 6px;
-      font-size: .95rem;
+      background: linear-gradient(to right, rgba(15, 23, 42, 0.95) 30%, rgba(15, 23, 42, 0.4) 100%), url('hero.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 0 10%;
     }
-    .contact-bar a:hover { text-decoration: underline; }
-    .contact-bar .icon { font-size: 1.1rem; }
 
-    /* ── Layout ─────────────────────────────────────────────────── */
-    .container {
-      max-width: 1060px;
-      margin: 32px auto;
-      padding: 0 20px;
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 28px;
+    .hero-content {
+      max-width: 800px;
+      z-index: 2;
     }
-    @media (max-width: 760px) {
+
+    .hero-tag {
+      display: inline-block;
+      padding: 6px 16px;
+      background: var(--gold);
+      color: #000;
+      font-weight: 800;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      background: linear-gradient(to right, #fff, #94a3b8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      opacity: 0.8;
+      margin-bottom: 40px;
+      font-weight: 300;
+      max-width: 600px;
+    }
+
+    .cta-row { display: flex; gap: 20px; flex-wrap: wrap; }
+    
+    .btn {
+      padding: 14px 32px;
+      text-decoration: none;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.9rem;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: #1a1a1a;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.3);
+      color: #fff;
+    }
+
+    .btn-outline:hover { background: rgba(255,255,255,0.1); }
+
+    /* ── Main Layout ────────────────────────────────────────────── */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 80px 5%;
+      display: grid;
+      grid-template-columns: 350px 1fr;
+      gap: 60px;
+    }
+
+    @media (max-width: 1100px) {
       .container { grid-template-columns: 1fr; }
     }
 
-    /* ── Shared card ────────────────────────────────────────────── */
-    .card {
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,.08);
-      padding: 24px 22px;
-      margin-bottom: 22px;
+    /* ── Side Cards ─────────────────────────────────────────────── */
+    .side-card {
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 30px;
+      margin-bottom: 30px;
     }
-    .card h2 {
-      font-size: 1.05rem;
+
+    .side-card h2 {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--gold);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .side-card h2::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .pill-list { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+    .pill-list li {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      color: #cbd5e1;
+    }
+
+    .item-list { list-style: none; }
+    .item-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
+    .item-list li:last-child { border-bottom: none; }
+
+    /* ── Main Content Area ───────────────────────────────────────── */
+    .main-section { margin-bottom: 80px; }
+    .section-header {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      position: relative;
+    }
+    .section-header::before {
+      content: '';
+      position: absolute;
+      left: -20px;
+      top: 50%;
+      width: 4px;
+      height: 70%;
+      background: var(--gold);
+      transform: translateY(-50%);
+    }
+
+    /* ── Timeline ────────────────────────────────────────────────── */
+    .timeline-item {
+      position: relative;
+      padding-left: 40px;
+      margin-bottom: 50px;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 12px;
+      height: 12px;
+      background: var(--gold);
+      border-radius: 50%;
+      box-shadow: 0 0 15px var(--gold);
+    }
+
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 25px;
+      width: 2px;
+      height: calc(100% + 25px);
+      background: var(--border);
+    }
+    .timeline-item:last-child::after { display: none; }
+
+    .item-date {
+      font-size: 0.85rem;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: #1e6fa5;
-      border-bottom: 2px solid #e8eef4;
-      padding-bottom: 8px;
-      margin-bottom: 14px;
+      color: var(--gold);
+      margin-bottom: 5px;
+      display: block;
     }
 
-    /* ── Skills / Certs / Awards ───────────────────────────────── */
-    .pill-list { list-style: none; }
-    .pill-list li {
-      background: #e8f1fb;
-      color: #0a3d62;
-      border-radius: 20px;
-      padding: 5px 14px;
-      display: inline-block;
-      margin: 4px 3px;
-      font-size: .88rem;
-      font-weight: 600;
-    }
-    .plain-list { list-style: none; }
-    .plain-list li {
-      padding: 5px 0;
-      border-bottom: 1px solid #f0f2f5;
-      font-size: .9rem;
-    }
-    .plain-list li:last-child { border-bottom: none; }
+    .item-title { font-size: 1.5rem; margin-bottom: 5px; }
+    .item-org { font-size: 1.1rem; color: #94a3b8; margin-bottom: 15px; display: block; }
+    .item-desc { color: #cbd5e1; font-size: 1.05rem; }
 
-    /* ── Experience / Education ─────────────────────────────────── */
-    .timeline-item { margin-bottom: 26px; }
-    .timeline-item:last-child { margin-bottom: 0; }
-    .timeline-item .org {
-      font-weight: 700;
-      font-size: 1rem;
-      color: #0a3d62;
-    }
-    .timeline-item .role {
-      font-weight: 600;
-      font-size: .97rem;
-      margin-top: 2px;
-    }
-    .timeline-item .meta {
-      font-size: .82rem;
-      color: #666;
-      margin: 2px 0 6px;
-    }
-    .timeline-item p { font-size: .9rem; color: #444; }
-
-    /* ── Publications ───────────────────────────────────────────── */
-    .pub-list { list-style: none; }
-    .pub-list li {
-      padding: 8px 0;
-      border-bottom: 1px solid #f0f2f5;
-      font-size: .9rem;
-      color: #333;
-    }
-    .pub-list li:last-child { border-bottom: none; }
-    .pub-list li::before { content: "📄 "; }
-
+    /* ── Footer ──────────────────────────────────────────────────── */
     footer {
+      border-top: 1px solid var(--border);
+      padding: 60px 10%;
       text-align: center;
-      padding: 24px;
-      font-size: .82rem;
-      color: #888;
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+
+    /* ── Animations ─────────────────────────────────────────────── */
+    [data-aos="fade-up"] {
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Images ──────────────────────────────────────────────────── */
+    .logo-container {
+      margin-bottom: 30px;
+      text-align: left;
+    }
+    .uofl-logo {
+      height: 120px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      opacity: 0.9;
+    }
+
+    .class-preview {
+      width: 100%;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      margin-top: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease;
+    }
+    .class-preview:hover {
+      transform: scale(1.02);
     }
   </style>
 </head>
 <body>
 
-<!-- ═══════════════════ HERO ═══════════════════════════════════════ -->
-<header>
-  <h1>Sidney Shapiro PhD</h1>
-  <p class="tagline">Assistant Professor of Data Analytics&nbsp;|&nbsp;Data Science Manager&nbsp;|&nbsp;Python Developer&nbsp;|&nbsp;Google Developer Group Lead</p>
-  <p class="location">📍 Lethbridge, Alberta, Canada</p>
-</header>
-
-<!-- ═══════════════════ CONTACT BAR ════════════════════════════════ -->
-<div class="contact-bar">
-  <a href="mailto:sidney.shapiro@gmail.com">
-    <span class="icon">✉</span> sidney.shapiro@gmail.com
-  </a>
-  <a href="https://www.linkedin.com/in/sidneyshapiro" target="_blank" rel="noopener noreferrer">
-    <span class="icon">🔗</span> linkedin.com/in/sidneyshapiro
-  </a>
-</div>
-
-<!-- ═══════════════════ TWO-COLUMN LAYOUT ══════════════════════════ -->
-<div class="container">
-
-  <!-- ─────────────────── LEFT COLUMN ──────────────────────── -->
-  <aside>
-
-    <!-- Top Skills -->
-    <div class="card">
-      <h2>Top Skills</h2>
-      <ul class="pill-list">
-        <li>Python</li>
-        <li>Research</li>
-        <li>Guest Lecturing</li>
-      </ul>
-    </div>
-
-    <!-- Certifications -->
-    <div class="card">
-      <h2>Certifications</h2>
-      <ul class="plain-list">
-        <li>AI Fundamentals</li>
-        <li>Intermediate Python</li>
-        <li>Certificate of Completion – Understanding Program Evaluation for Youth Wellbeing</li>
-        <li>Introduction to Business Analytics</li>
-        <li>Python Essential Training</li>
-      </ul>
-    </div>
-
-    <!-- Honors & Awards -->
-    <div class="card">
-      <h2>Honors &amp; Awards</h2>
-      <ul class="plain-list">
-        <li>🏅 English Arts Award</li>
-        <li>🏅 Best Minister – Model Parliament</li>
-      </ul>
-    </div>
-
-    <!-- Publications -->
-    <div class="card">
-      <h2>Publications</h2>
-      <ul class="pub-list">
-        <li>St. Eustatius Excavation Field Report</li>
-        <li>Post 9/11 Perils of Air Travel: Authentication, Air Travel, Transport</li>
-        <li>Motivation and Engagement of Nursing Students in 2 Gamified Courses</li>
-        <li>When Big Data Gets Small Results</li>
-        <li>State and Religion</li>
-      </ul>
-    </div>
-
-    <!-- Education -->
-    <div class="card">
-      <h2>Education</h2>
-      <div class="timeline-item">
-        <div class="org">Laurentian University</div>
-        <div class="role">Doctor of Philosophy (PhD), Multi/Interdisciplinary Studies</div>
-        <div class="meta">2016 – 2022</div>
-      </div>
-      <div class="timeline-item">
-        <div class="org">Laurentian University</div>
-        <div class="role">Master of Arts (MA), Applied Social Research – Sociology</div>
-        <div class="meta">2010 – 2013</div>
-      </div>
-      <div class="timeline-item">
-        <div class="org">Laurentian University</div>
-        <div class="role">Bachelor of Arts Honours (BA Hons.), Political Science – International Relations &amp; Affairs</div>
-        <div class="meta">Completed prior to 2010</div>
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-content">
+      <span class="hero-tag">Assistant Professor & Data Science Manager</span>
+      <h1>Sidney Shapiro, PhD</h1>
+      <p>Bridging the gap between academic research and industrial innovation. Expertise in AI adoption, Data Analytics, and Python automation.</p>
+      <div class="cta-row">
+        <a href="mailto:sidney.shapiro@gmail.com" class="btn btn-primary">Connect via Email</a>
+        <a href="https://www.linkedin.com/in/sidneyshapiro" target="_blank" class="btn btn-outline">LinkedIn Profile</a>
       </div>
     </div>
+  </header>
 
-  </aside>
-
-  <!-- ─────────────────── RIGHT COLUMN ─────────────────────── -->
-  <main>
-
-    <!-- Summary -->
-    <div class="card">
-      <h2>Summary</h2>
-      <p>
-        With over a decade of experience in data collection, analysis, and storytelling within the realm of Business Intelligence (BI), I excel in developing and automating data tools and products using Python and SQL. My expertise lies at the intersection of research, higher education, consulting, Data Science, Data Engineering, Machine Learning, and Automation. By leveraging my comprehensive understanding of business systems and technology, I effectively lead teams to analyze data, implement data management strategies, and develop solutions that enhance speed, efficiency, and cost-effectiveness.
-      </p>
-      <br />
-      <p>
-        My areas of expertise include: Leadership, Python Programming, Software Development Life Cycle (SDLC), Dashboards, Data Engineering, Software Development, Data Analytics, and Research &amp; Program Evaluation.
-      </p>
-    </div>
-
-    <!-- Experience -->
-    <div class="card">
-      <h2>Experience</h2>
-
-      <div class="timeline-item">
-        <div class="org">Dhillon School of Business – University of Lethbridge</div>
-        <div class="role">Assistant Professor of Business Analytics</div>
-        <div class="meta">May 2023 – Present · Lethbridge, AB</div>
-        <p>Design and deliver courses equipping students with data management, wrangling, transformation, and visualisation skills. Conduct research on AI adoption in Canadian businesses, data privacy in healthcare, and other business analytics topics. Academic service includes peer reviewing and interdisciplinary collaboration.</p>
+  <div class="container">
+    
+    <!-- Sidebar -->
+    <aside>
+      <div class="logo-container">
+        <img src="ulethbridge-logo-portrait.png.webp" alt="University of Lethbridge Logo" class="uofl-logo">
+      </div>
+      <div class="side-card">
+        <h2>Expertise</h2>
+        <ul class="pill-list">
+          <li>Python</li>
+          <li>Data Engineering</li>
+          <li>Machine Learning</li>
+          <li>Research</li>
+          <li>Leadership</li>
+          <li>SDLC</li>
+          <li>Dashboards</li>
+          <li>Business BI</li>
+        </ul>
       </div>
 
-      <div class="timeline-item">
-        <div class="org">University of Lethbridge</div>
-        <div class="role">Adjunct Assistant Professor of Computer Science</div>
-        <div class="meta">March 2024 – Present · Lethbridge, Alberta</div>
-        <p>Teach graduate computer science courses, develop curriculum, mentor students, and contribute to academic research. Leverage business analytics and data science expertise in interdisciplinary collaboration using hybrid teaching methodologies.</p>
+      <div class="side-card">
+        <h2>Awards</h2>
+        <ul class="item-list">
+          <li>🏅 English Arts Award</li>
+          <li>🏅 Best Minister – Model Parliament</li>
+        </ul>
       </div>
 
-      <div class="timeline-item">
-        <div class="org">Stealth Mode</div>
-        <div class="role">Consultant</div>
-        <div class="meta">2015 – Present</div>
-        <p>Combine research, business, and computer science expertise to help clients make informed decisions, improve operations, and increase efficiency through data-driven, customised strategies.</p>
+      <div class="side-card">
+        <h2>Publications</h2>
+        <ul class="item-list">
+          <li>Post 9/11 Perils of Air Travel</li>
+          <li>When Big Data Gets Small Results</li>
+          <li>State and Religion</li>
+          <li>Gamified Nursing Courses Study</li>
+          <li>St. Eustatius Field Report</li>
+        </ul>
       </div>
 
-      <div class="timeline-item">
-        <div class="org">Sofvie Inc.</div>
-        <div class="role">Data Science Manager</div>
-        <div class="meta">May 2022 – May 2023 · Greater Sudbury, Ontario</div>
-        <p>Led a team of data scientists developing solutions for the occupational health and safety sector. Built and maintained developer tools and APIs using Python, FastAPI, Flask, SQL, and Streamlit. Supervised and mentored the data science team and managed issues via Jira.</p>
+      <div class="side-card">
+        <h2>Education</h2>
+        <div style="margin-bottom: 20px;">
+          <strong style="color:var(--gold)">PhD</strong><br>
+          <span style="font-size:0.9rem">Laurentian University</span>
+        </div>
+        <div style="margin-bottom: 20px;">
+          <strong style="color:var(--gold)">MA, Applied Social Research</strong><br>
+          <span style="font-size:0.9rem">Laurentian University</span>
+        </div>
+        <div>
+          <strong style="color:var(--gold)">BA Hons, Political Science</strong><br>
+          <span style="font-size:0.9rem">Laurentian University</span>
+        </div>
       </div>
+    </aside>
 
-      <div class="timeline-item">
-        <div class="org">Cambrian College</div>
-        <div class="role">Professor &amp; Program Coordinator – Crime and Business Analytics</div>
-        <div class="meta">August 2018 – April 2023 · Ontario, Canada</div>
-        <p>Taught graduate certificate analytics courses (programming, Excel dashboards, marketing analytics, data collection &amp; ethics) and coordinated two graduate programs. Made programming accessible through real-world examples, hands-on data exploration, and SaaS application development with Flask and Python.</p>
-      </div>
+    <!-- Main Content -->
+    <main>
+      
+      <section class="main-section">
+        <h2 class="section-header">Executive Summary</h2>
+        <p style="font-size: 1.2rem; color: #cbd5e1; max-width: 800px;">
+          With over a decade of experience in data collection, analysis, and storytelling, I excel in developing data tools using Python and SQL. My expertise lies at the intersection of research, higher education, and industrial consulting, enabling teams to implement data strategies that enhance speed and cost-effectiveness.
+        </p>
+      </section>
 
-      <div class="timeline-item">
-        <div class="org">Canadore College</div>
-        <div class="role">Part-time Faculty</div>
-        <div class="meta">September 2022 – December 2022 · North Bay, Ontario</div>
-        <p>Taught BUS117-02 Computer Applications for Business I at the Entrepreneurship Academy, focusing on Excel for data analysis, budgeting, and chart creation.</p>
-      </div>
+      <section class="main-section">
+        <h2 class="section-header">Experience</h2>
 
-      <div class="timeline-item">
-        <div class="org">Youth Research and Evaluation eXchange (YouthRex)</div>
-        <div class="role">Teaching &amp; Research Assistant / Course Developer</div>
-        <div class="meta">September 2015 – April 2018 · Sudbury / Toronto, Ontario</div>
-        <p>Conducted customised evaluations for non-profit youth services sector clients. Developed educational materials and content for advanced program evaluation and data analytics certificate courses; delivered webinars and training workshops.</p>
-      </div>
+        <div class="timeline-item">
+          <span class="item-date">May 2023 — Present</span>
+          <h3 class="item-title">Assistant Professor of Business Analytics</h3>
+          <span class="item-org">Dhillon School of Business, University of Lethbridge</span>
+          <p class="item-desc">Leading research on AI adoption in Canadian business and healthcare data privacy. Designing curriculum for data management, wrangling, and visualization.</p>
+        </div>
 
-      <div class="timeline-item">
-        <div class="org">Laurentian University</div>
-        <div class="role">Graduate Teaching Assistant</div>
-        <div class="meta">September 2009 – April 2018 · Sudbury, Ontario</div>
-        <p>Supported professors in Political Science, Sociology BA and MA programs. Led tutorials, graded assignments, and helped create an engaging learning environment.</p>
-      </div>
+        <div class="timeline-item">
+          <span class="item-date">March 2024 — Present</span>
+          <h3 class="item-title">Adjunct Assistant Professor of Computer Science</h3>
+          <span class="item-org">University of Lethbridge</span>
+          <p class="item-desc">Teaching graduate courses, mentoring students, and fostering interdisciplinary collaboration between business analytics and CS.</p>
+        </div>
 
-      <div class="timeline-item">
-        <div class="org">CRaNHR</div>
-        <div class="role">Research Assistant</div>
-        <div class="meta">September 2013 – April 2015</div>
-        <p>Assisted in designing and implementing research studies, data collection and analysis, grant applications, and dissemination of findings at the Centre for Rural and Northern Health Research.</p>
-      </div>
+        <div class="timeline-item">
+          <span class="item-date">2023 — 2023</span>
+          <h3 class="item-title">Data Science Manager</h3>
+          <span class="item-org">Sofvie Inc.</span>
+          <p class="item-desc">Led a team of data scientists to build enterprise APIs and analytics tools using FastAPI, Flask, and Streamlit for the safety sector.</p>
+        </div>
 
-      <div class="timeline-item">
-        <div class="org">QuitNorth</div>
-        <div class="role">Operations Manager</div>
-        <div class="meta">December 2012 – September 2013</div>
-        <p>Managed day-to-day operations for a nicotine cessation organisation across three Greater Sudbury locations, overseeing counselling sessions, budgets, and regulatory compliance.</p>
-      </div>
+        <div class="timeline-item">
+          <span class="item-date">2018 — 2022</span>
+          <h3 class="item-title">Program Coordinator & Professor</h3>
+          <span class="item-org">Cambrian College</span>
+          <p class="item-desc">Coordinated graduate programs in Crime and Business Analytics. Developed Python-based automation courses and AI integration strategies.</p>
+        </div>
 
-      <div class="timeline-item">
-        <div class="org">Northern Black Ice</div>
-        <div class="role">Operations Manager</div>
-        <div class="meta">May 2008 – April 2013 · Sudbury, Ontario</div>
-        <p>Researched, planned, and implemented IT solutions for medical clinics across Northern Ontario, including telemedicine systems, networking, file sharing, and security integration.</p>
-      </div>
+        <div class="timeline-item">
+          <span class="item-date">2015 — Present</span>
+          <h3 class="item-title">Independent Consultant</h3>
+          <span class="item-org">Stealth Mode</span>
+          <p class="item-desc">Bridging the gap between research and business operations to drive data-driven growth and operational efficiency.</p>
+        </div>
 
-    </div><!-- /card experience -->
+      </section>
 
-  </main>
+      <section class="main-section">
+        <h2 class="section-header">In the Classroom</h2>
+        <p style="color: #cbd5e1; margin-bottom: 20px;">A snapshot from <strong>Day 1</strong>—inspiring the next generation of data analysts through hands-on exploration and real-world technology integration.</p>
+        <img src="day1.png" alt="Class Day 1 Preview" class="class-preview">
+      </section>
 
-</div><!-- /container -->
+    </main>
+  </div>
 
-<footer>
-  &copy; <span id="yr"></span> Sidney Shapiro PhD · Lethbridge, Alberta, Canada
-  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
-</footer>
+  <footer>
+    <p>&copy; <span id="year"></span> Sidney Shapiro PhD. All rights reserved. Lethbridge, Alberta.</p>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  </footer>
 
 </body>
 </html>
