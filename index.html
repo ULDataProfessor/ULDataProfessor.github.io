@@ -1,1 +1,342 @@
-this is a test
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sidney Shapiro PhD – Data Analytics &amp; Data Science</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f4f6f9;
+      color: #222;
+      line-height: 1.7;
+    }
+
+    /* ── Hero ───────────────────────────────────────────────────── */
+    header {
+      background: linear-gradient(135deg, #0a3d62 0%, #1e6fa5 100%);
+      color: #fff;
+      padding: 56px 24px 40px;
+      text-align: center;
+    }
+    header h1 { font-size: 2.4rem; letter-spacing: .5px; }
+    header .tagline {
+      font-size: 1.05rem;
+      margin-top: 8px;
+      opacity: .9;
+    }
+    header .location { margin-top: 6px; opacity: .75; font-size: .9rem; }
+
+    /* ── Contact bar ────────────────────────────────────────────── */
+    .contact-bar {
+      background: #fff;
+      border-bottom: 3px solid #1e6fa5;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 14px 24px;
+    }
+    .contact-bar a {
+      color: #1e6fa5;
+      text-decoration: none;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .95rem;
+    }
+    .contact-bar a:hover { text-decoration: underline; }
+    .contact-bar .icon { font-size: 1.1rem; }
+
+    /* ── Layout ─────────────────────────────────────────────────── */
+    .container {
+      max-width: 1060px;
+      margin: 32px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 28px;
+    }
+    @media (max-width: 760px) {
+      .container { grid-template-columns: 1fr; }
+    }
+
+    /* ── Shared card ────────────────────────────────────────────── */
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,.08);
+      padding: 24px 22px;
+      margin-bottom: 22px;
+    }
+    .card h2 {
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #1e6fa5;
+      border-bottom: 2px solid #e8eef4;
+      padding-bottom: 8px;
+      margin-bottom: 14px;
+    }
+
+    /* ── Skills / Certs / Awards ───────────────────────────────── */
+    .pill-list { list-style: none; }
+    .pill-list li {
+      background: #e8f1fb;
+      color: #0a3d62;
+      border-radius: 20px;
+      padding: 5px 14px;
+      display: inline-block;
+      margin: 4px 3px;
+      font-size: .88rem;
+      font-weight: 600;
+    }
+    .plain-list { list-style: none; }
+    .plain-list li {
+      padding: 5px 0;
+      border-bottom: 1px solid #f0f2f5;
+      font-size: .9rem;
+    }
+    .plain-list li:last-child { border-bottom: none; }
+
+    /* ── Experience / Education ─────────────────────────────────── */
+    .timeline-item { margin-bottom: 26px; }
+    .timeline-item:last-child { margin-bottom: 0; }
+    .timeline-item .org {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #0a3d62;
+    }
+    .timeline-item .role {
+      font-weight: 600;
+      font-size: .97rem;
+      margin-top: 2px;
+    }
+    .timeline-item .meta {
+      font-size: .82rem;
+      color: #666;
+      margin: 2px 0 6px;
+    }
+    .timeline-item p { font-size: .9rem; color: #444; }
+
+    /* ── Publications ───────────────────────────────────────────── */
+    .pub-list { list-style: none; }
+    .pub-list li {
+      padding: 8px 0;
+      border-bottom: 1px solid #f0f2f5;
+      font-size: .9rem;
+      color: #333;
+    }
+    .pub-list li:last-child { border-bottom: none; }
+    .pub-list li::before { content: "📄 "; }
+
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-size: .82rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════ HERO ═══════════════════════════════════════ -->
+<header>
+  <h1>Sidney Shapiro PhD</h1>
+  <p class="tagline">Assistant Professor of Data Analytics&nbsp;|&nbsp;Data Science Manager&nbsp;|&nbsp;Python Developer&nbsp;|&nbsp;Google Developer Group Lead</p>
+  <p class="location">📍 Lethbridge, Alberta, Canada</p>
+</header>
+
+<!-- ═══════════════════ CONTACT BAR ════════════════════════════════ -->
+<div class="contact-bar">
+  <a href="mailto:sidney.shapiro@gmail.com">
+    <span class="icon">✉</span> sidney.shapiro@gmail.com
+  </a>
+  <a href="https://www.linkedin.com/in/sidneyshapiro" target="_blank" rel="noopener noreferrer">
+    <span class="icon">🔗</span> linkedin.com/in/sidneyshapiro
+  </a>
+</div>
+
+<!-- ═══════════════════ TWO-COLUMN LAYOUT ══════════════════════════ -->
+<div class="container">
+
+  <!-- ─────────────────── LEFT COLUMN ──────────────────────── -->
+  <aside>
+
+    <!-- Top Skills -->
+    <div class="card">
+      <h2>Top Skills</h2>
+      <ul class="pill-list">
+        <li>Python</li>
+        <li>Research</li>
+        <li>Guest Lecturing</li>
+      </ul>
+    </div>
+
+    <!-- Certifications -->
+    <div class="card">
+      <h2>Certifications</h2>
+      <ul class="plain-list">
+        <li>AI Fundamentals</li>
+        <li>Intermediate Python</li>
+        <li>Certificate of Completion – Understanding Program Evaluation for Youth Wellbeing</li>
+        <li>Introduction to Business Analytics</li>
+        <li>Python Essential Training</li>
+      </ul>
+    </div>
+
+    <!-- Honors & Awards -->
+    <div class="card">
+      <h2>Honors &amp; Awards</h2>
+      <ul class="plain-list">
+        <li>🏅 English Arts Award</li>
+        <li>🏅 Best Minister – Model Parliament</li>
+      </ul>
+    </div>
+
+    <!-- Publications -->
+    <div class="card">
+      <h2>Publications</h2>
+      <ul class="pub-list">
+        <li>St. Eustatius Excavation Field Report</li>
+        <li>Post 9/11 Perils of Air Travel: Authentication, Air Travel, Transport</li>
+        <li>Motivation and Engagement of Nursing Students in 2 Gamified Courses</li>
+        <li>When Big Data Gets Small Results</li>
+        <li>State and Religion</li>
+      </ul>
+    </div>
+
+    <!-- Education -->
+    <div class="card">
+      <h2>Education</h2>
+      <div class="timeline-item">
+        <div class="org">Laurentian University</div>
+        <div class="role">Doctor of Philosophy (PhD), Multi/Interdisciplinary Studies</div>
+        <div class="meta">2016 – 2022</div>
+      </div>
+      <div class="timeline-item">
+        <div class="org">Laurentian University</div>
+        <div class="role">Master of Arts (MA), Applied Social Research – Sociology</div>
+        <div class="meta">2010 – 2013</div>
+      </div>
+      <div class="timeline-item">
+        <div class="org">Laurentian University</div>
+        <div class="role">Bachelor of Arts Honours (BA Hons.), Political Science – International Relations &amp; Affairs</div>
+        <div class="meta">Completed prior to 2010</div>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- ─────────────────── RIGHT COLUMN ─────────────────────── -->
+  <main>
+
+    <!-- Summary -->
+    <div class="card">
+      <h2>Summary</h2>
+      <p>
+        With over a decade of experience in data collection, analysis, and storytelling within the realm of Business Intelligence (BI), I excel in developing and automating data tools and products using Python and SQL. My expertise lies at the intersection of research, higher education, consulting, Data Science, Data Engineering, Machine Learning, and Automation. By leveraging my comprehensive understanding of business systems and technology, I effectively lead teams to analyze data, implement data management strategies, and develop solutions that enhance speed, efficiency, and cost-effectiveness.
+      </p>
+      <br />
+      <p>
+        My areas of expertise include: Leadership, Python Programming, Software Development Life Cycle (SDLC), Dashboards, Data Engineering, Software Development, Data Analytics, and Research &amp; Program Evaluation.
+      </p>
+    </div>
+
+    <!-- Experience -->
+    <div class="card">
+      <h2>Experience</h2>
+
+      <div class="timeline-item">
+        <div class="org">Dhillon School of Business – University of Lethbridge</div>
+        <div class="role">Assistant Professor of Business Analytics</div>
+        <div class="meta">May 2023 – Present · Lethbridge, AB</div>
+        <p>Design and deliver courses equipping students with data management, wrangling, transformation, and visualisation skills. Conduct research on AI adoption in Canadian businesses, data privacy in healthcare, and other business analytics topics. Academic service includes peer reviewing and interdisciplinary collaboration.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="org">University of Lethbridge</div>
+        <div class="role">Adjunct Assistant Professor of Computer Science</div>
+        <div class="meta">March 2024 – Present · Lethbridge, Alberta</div>
+        <p>Teach graduate computer science courses, develop curriculum, mentor students, and contribute to academic research. Leverage business analytics and data science expertise in interdisciplinary collaboration using hybrid teaching methodologies.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="org">Stealth Mode</div>
+        <div class="role">Consultant</div>
+        <div class="meta">2015 – Present</div>
+        <p>Combine research, business, and computer science expertise to help clients make informed decisions, improve operations, and increase efficiency through data-driven, customised strategies.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="org">Sofvie Inc.</div>
+        <div class="role">Data Science Manager</div>
+        <div class="meta">May 2022 – May 2023 · Greater Sudbury, Ontario</div>
+        <p>Led a team of data scientists developing solutions for the occupational health and safety sector. Built and maintained developer tools and APIs using Python, FastAPI, Flask, SQL, and Streamlit. Supervised and mentored the data science team and managed issues via Jira.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="org">Cambrian College</div>
+        <div class="role">Professor &amp; Program Coordinator – Crime and Business Analytics</div>
+        <div class="meta">August 2018 – April 2023 · Ontario, Canada</div>
+        <p>Taught graduate certificate analytics courses (programming, Excel dashboards, marketing analytics, data collection &amp; ethics) and coordinated two graduate programs. Made programming accessible through real-world examples, hands-on data exploration, and SaaS application development with Flask and Python.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="org">Canadore College</div>
+        <div class="role">Part-time Faculty</div>
+        <div class="meta">September 2022 – December 2022 · North Bay, Ontario</div>
+        <p>Taught BUS117-02 Computer Applications for Business I at the Entrepreneurship Academy, focusing on Excel for data analysis, budgeting, and chart creation.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="org">Youth Research and Evaluation eXchange (YouthRex)</div>
+        <div class="role">Teaching &amp; Research Assistant / Course Developer</div>
+        <div class="meta">September 2015 – April 2018 · Sudbury / Toronto, Ontario</div>
+        <p>Conducted customised evaluations for non-profit youth services sector clients. Developed educational materials and content for advanced program evaluation and data analytics certificate courses; delivered webinars and training workshops.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="org">Laurentian University</div>
+        <div class="role">Graduate Teaching Assistant</div>
+        <div class="meta">September 2009 – April 2018 · Sudbury, Ontario</div>
+        <p>Supported professors in Political Science, Sociology BA and MA programs. Led tutorials, graded assignments, and helped create an engaging learning environment.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="org">CRaNHR</div>
+        <div class="role">Research Assistant</div>
+        <div class="meta">September 2013 – April 2015</div>
+        <p>Assisted in designing and implementing research studies, data collection and analysis, grant applications, and dissemination of findings at the Centre for Rural and Northern Health Research.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="org">QuitNorth</div>
+        <div class="role">Operations Manager</div>
+        <div class="meta">December 2012 – September 2013</div>
+        <p>Managed day-to-day operations for a nicotine cessation organisation across three Greater Sudbury locations, overseeing counselling sessions, budgets, and regulatory compliance.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="org">Northern Black Ice</div>
+        <div class="role">Operations Manager</div>
+        <div class="meta">May 2008 – April 2013 · Sudbury, Ontario</div>
+        <p>Researched, planned, and implemented IT solutions for medical clinics across Northern Ontario, including telemedicine systems, networking, file sharing, and security integration.</p>
+      </div>
+
+    </div><!-- /card experience -->
+
+  </main>
+
+</div><!-- /container -->
+
+<footer>
+  &copy; <span id="yr"></span> Sidney Shapiro PhD · Lethbridge, Alberta, Canada
+  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</footer>
+
+</body>
+</html>
